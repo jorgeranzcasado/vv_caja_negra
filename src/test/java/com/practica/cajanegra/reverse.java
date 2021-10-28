@@ -16,8 +16,8 @@ public class reverse {
     @BeforeEach
     public void setUp(){
         this.lista = new SingleLinkedListImpl<String>("A","B","C"); //Varios elementos
-        this.lista = new SingleLinkedListImpl<String>("A"); //Un elemento
-        this.lista = new SingleLinkedListImpl<String>(); //Sin elementos
+        //this.lista = new SingleLinkedListImpl<String>("A"); //Un elemento
+        //this.lista = new SingleLinkedListImpl<String>(); //Sin elementos
     }
     //Probamos su funcionamiento
     @Test
