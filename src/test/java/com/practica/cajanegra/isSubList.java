@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import com.cajanegra.SingleLinkedListImpl;
 
-public class IsSubList {
+public class isSubList {
     private AbstractSingleLinkedListImpl<String> lista;
 
     @BeforeEach
