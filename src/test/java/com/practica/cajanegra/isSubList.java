@@ -14,12 +14,14 @@ public class isSubList {
 
     @BeforeEach
     public void setUp(){
-        this.lista = new SingleLinkedListImpl<String>("A","B","C"); //Varios elementos
+
+        this.lista = new SingleLinkedListImpl<String>("A","B","C","D","X","Y");//Varios elementos
+        //this.lista = new SingleLinkedListImpl<String>(); //Sin elementos
     }
     @Test
     public void testIsSubList(){
-        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("A","B","C");
-        assertEquals(miLista.isSubList(this.lista), 1);
+        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("B","C","D");
+        assertEquals(this.lista.isSubList(miLista), 2);
     }
 
     @Test
@@ -30,8 +32,38 @@ public class isSubList {
 
     @Test
     public void testIsSubListPeq2(){
-        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("C");
-        assertEquals(this.lista.isSubList(miLista), 3);
+        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("A", "B");
+        assertEquals(this.lista.isSubList(miLista), 1);
+    }
+
+    @Test
+    public void testIsSubListPeq3(){
+        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("B", "A");
+        assertEquals(this.lista.isSubList(miLista), -1);
+    }
+
+    @Test
+    public void testIsSubListPeq4(){
+        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("C", "B");
+        assertEquals(this.lista.isSubList(miLista), -1);
+    }
+
+    @Test
+    public void testIsSubListPeq5(){
+        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("B");
+        assertEquals(this.lista.isSubList(miLista), 2);
+    }
+
+    @Test
+    public void testIsSubListPeq6(){
+        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("");
+        assertEquals(this.lista.isSubList(miLista), -1);
+    }
+
+    @Test
+    public void testIsSubListPeq7(){
+        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>();
+        assertEquals(this.lista.isSubList(miLista), 0);
     }
 
     @Test
