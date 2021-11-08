@@ -16,7 +16,8 @@ public class removeLastTest {
     public void testRemovelast() throws EmptyCollectionException {
 
         SingleLinkedListImpl<Integer> mylist = new SingleLinkedListImpl<Integer>(56,28,60,59,82);
-
+        // permite meter valores fuera del rango que es de A hasta Z
+     
         // lo que vamos a comproabr si el metodo removeLast elimina de verdad el ultimo  elemento en la lista pasado como parametro.
         // deleting last element by passing index
         int devuelve=mylist.removeLast(59);
