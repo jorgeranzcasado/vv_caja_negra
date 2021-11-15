@@ -14,14 +14,14 @@ public class getAtPos {
 
     @BeforeEach
     public void setUp() {
-        this.miLista = new SingleLinkedListImpl<>("A","B","C");
+        this.miLista = new SingleLinkedListImpl<>("A","B","C","D","E");
     }
 
     // Clase valida:   0 < pos <= size()
     @ParameterizedTest(name= "Valid values - Get position {0} in list")
-    @ValueSource(ints = {1,2,3})
+    @ValueSource(ints = {1,2,3,4,5})
     public void getAtPostValidos(int n) {
-        String[] salidaEsp = {"A","B","C"} ;
+        String[] salidaEsp = {"A","B","C","D","E"} ;
         assertEquals(salidaEsp[n-1], this.miLista.getAtPos(n));
     }
 
@@ -37,7 +37,7 @@ public class getAtPos {
     @Test
     void getAtPostInvalido2() {
         Exception exception = assertThrows(IllegalArgumentException.class, () ->
-                this.miLista.getAtPos(4));
+                this.miLista.getAtPos(6));
         assertEquals("La posición no puede ser superior al tamaño de la lista", exception.getMessage());
     }
 }
