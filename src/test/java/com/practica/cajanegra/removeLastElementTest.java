@@ -1,33 +1,70 @@
 package com.practica.cajanegra;
 
-import com.cajanegra.AbstractSingleLinkedListImpl;
-import com.cajanegra.SingleLinkedListImpl;
-
 import com.cajanegra.EmptyCollectionException;
-import static org.junit.jupiter.api.Assertions.*;
-
+import com.cajanegra.SingleLinkedListImpl;
+import java.util.NoSuchElementException;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class removeLastElementTest {
-    private AbstractSingleLinkedListImpl<String> lista;
+    private SingleLinkedListImpl<String> miLista;
 
-    @Test
-    public void testRemoveLast () throws EmptyCollectionException {
-        lista = new SingleLinkedListImpl<>("A", "B", "C");
-        assertEquals("C", lista.removeLast("C"));
+    public removeLastElementTest() {
+    }
+
+    @ParameterizedTest(
+        name = "Eliminar Elemento {0} de una lista vacÃ\u00ada"
+    )
+    @ValueSource(
+        strings = {"A", "B", "M", "Y", "Z"}
+    )
+    public void removeElementVal1(String s) {
+        this.miLista = new SingleLinkedListImpl(new String[0]);
+        Assertions.assertThrows(EmptyCollectionException.class, () -> {
+            this.miLista.removeLast(s);
+        });
     }
 
     @Test
-    public void testRemoveLastIn1(){
-        lista = new SingleLinkedListImpl<>();
-        Exception exception = assertThrows(com.cajanegra.EmptyCollectionException.class, () -> lista.removeLast("A"));
-        assertEquals("La colecci\u00f3n La lista est\u00e1 vac\u00eda est\u00e1 vac\u00eda.", exception.getMessage());
+    public void removeElementVal2() {
+        this.miLista = new SingleLinkedListImpl(new String[]{"A", "B", "C"});
+        Assertions.assertThrows(NoSuchElementException.class, () -> {
+            this.miLista.removeLast("D");
+        });
     }
 
-    @Test
-    public void testRemoveLastIn2() throws  java.util.NoSuchElementException{
-        lista = new SingleLinkedListImpl<>("A", "B", "C");
-        Exception exception = assertThrows(java.util.NoSuchElementException.class, () -> lista.removeLast("D"));
-        assertEquals("El elemento no esta en la lista", exception.getMessage());
+    @ParameterizedTest(
+        name = "Eliminar Elemento {0} en la Ãºltima posiciÃ³n de una lista"
+    )
+    @ValueSource(
+        strings = {"A", "B", "M", "Y", "Z"}
+    )
+    public void removeElementVal3(String s) throws EmptyCollectionException {
+        this.miLista = new SingleLinkedListImpl(new String[]{"A", "B", "C", s});
+        Assertions.assertEquals(s, this.miLista.removeLast(s));
+    }
+
+    @ParameterizedTest(
+        name = "Eliminar Elemento {0} en la primera posiciÃ³n de una lista"
+    )
+    @ValueSource(
+        strings = {"A", "B", "M", "Y", "Z"}
+    )
+    public void removeElementVal4(String s) throws EmptyCollectionException {
+        this.miLista = new SingleLinkedListImpl(new String[]{s, "A", "B", "C"});
+        Assertions.assertEquals(s, this.miLista.removeLast(s));
+    }
+
+    @ParameterizedTest(
+        name = "Eliminar Elemento {0} en el centro de una lista"
+    )
+    @ValueSource(
+        strings = {"A", "B", "M", "Y", "Z"}
+    )
+    public void removeElementVal5(String s) throws EmptyCollectionException {
+        this.miLista = new SingleLinkedListImpl(new String[]{"A", "B", s, "C", "D"});
+        Assertions.assertEquals(s, this.miLista.removeLast(s));
     }
 }
