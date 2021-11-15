@@ -1,43 +1,41 @@
 package com.practica.cajanegra;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import com.cajanegra.AbstractSingleLinkedListImpl;
+import com.cajanegra.SingleLinkedListImpl;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import com.cajanegra.SingleLinkedListImpl;
-
 public class addFirstTest {
-    private AbstractSingleLinkedListImpl<String> lista;
+    private SingleLinkedListImpl<String> miLista;
+
+    public addFirstTest() {
+    }
 
     @BeforeEach
     public void setUp() {
-        lista = new SingleLinkedListImpl<>("A", "B", "C");
+        this.miLista = new SingleLinkedListImpl(new String[]{"A", "B", "C"});
     }
 
-    //Clase válida (s >= "A", s <="Z")
-    @ParameterizedTest(name="Add First {0} in List")
-    @ValueSource(strings = {"A", "B", "C", "X", "Z"})
-    public void testaddFirst(String s){
-        lista.addFirst(s);
-        assertEquals("["+s+", A, B, C]", lista.toString());
+    @ParameterizedTest(
+        name = "Add First {0} in list"
+    )
+    @ValueSource(
+        strings = {"A", "B", "M", "Y", "Z"}
+    )
+    public void addFirstValido(String s) {
+        this.miLista.addFirst(s);
+        Assertions.assertEquals("[" + s + ", A, B, C]", this.miLista.toString());
     }
 
-    //Clase inválida (s<"A")
-    @Test
-    public void testaddFirstIn1() {
-        lista.addFirst("@");
-        assertEquals("[A, B, C]", lista.toString());
+    @ParameterizedTest(
+        name = "Add First {0} in list"
+    )
+    @ValueSource(
+        strings = {"@", "["}
+    )
+    public void addFirstInvalido(String s) {
+        this.miLista.addFirst(s);
+        Assertions.assertEquals("[A, B, C]", this.miLista.toString());
     }
-
-    //Clase inválida (s>"Z")
-    @Test
-    public void testaddFirstIn2() {
-        lista.addFirst("[");
-        assertEquals("[A, B, C]", lista.toString());
-    }
-
 }
