@@ -34,7 +34,7 @@ public class addAtPos {
 
     @ParameterizedTest(name= "Valid values - Add Element position {1} in list")
     @ValueSource(strings = {"@", "A", "B", "L", "Y", "Z", "["})
-    public void addAtPosMinPlus(String s) {
+    public void addAtPosMin(String s) {
         String salidaEsp = "[" + s + ", A, B, C, D, E]";
         this.miLista.addAtPos(s, 1);
         assertEquals(salidaEsp, this.miLista.toString());
@@ -42,16 +42,16 @@ public class addAtPos {
 
     @ParameterizedTest(name= "Valid values - Add Element position {2} in list")
     @ValueSource(strings = {"@", "A", "B", "L", "Y", "Z", "["})
-    public void addAtPosMed(String s) {
+    public void addAtPosMinMas(String s) {
         String salidaEsp = "[A, " + s + ", B, C, D, E]";
         this.miLista.addAtPos(s, 2);
         assertEquals(salidaEsp, this.miLista.toString());
     }
 
     // Clases validas para index i:   1 < pos <= size()
-    @ParameterizedTest(name= "Valid values - Add Element position {1} in list")
+    @ParameterizedTest(name= "Valid values - Add Element in last position in list")
     @CsvFileSource(files = "datosMedMax-Max.csv")
-    public void addAtPosElemInvalidosindexInvalido(String s, int i) {
+    public void addAtPosElemIndexMayor(String s, int i) {
         String salidaEsp = "[A, B, C, D, E, " + s +"]";
         this.miLista.addAtPos(s, i);
         assertEquals(salidaEsp, this.miLista.toString());
