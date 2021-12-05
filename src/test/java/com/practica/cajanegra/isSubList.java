@@ -1,7 +1,6 @@
 package com.practica.cajanegra;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.cajanegra.AbstractSingleLinkedListImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,62 +13,53 @@ public class isSubList {
 
     @BeforeEach
     public void setUp(){
-
         this.lista = new SingleLinkedListImpl<String>("A","B","C","D","X","Y");//Varios elementos
-        //this.lista = new SingleLinkedListImpl<String>(); //Sin elementos
     }
-    @Test
-    public void testIsSubList(){
-        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("B","C","D");
-        assertEquals(this.lista.isSubList(miLista), 2);
-    }
-
     @Test
     public void testIsSubListPeq(){
-        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("B","C");
-        assertEquals(this.lista.isSubList(miLista), 2);
-    }
-
-    @Test
-    public void testIsSubListPeq2(){
         SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("A", "B");
-        assertEquals(this.lista.isSubList(miLista), 1);
+        assertEquals(1, this.lista.isSubList(miLista));
+    }
+    @Test
+    public void testIsSubListPeq1(){
+        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("B","C","D");
+        assertEquals(2, this.lista.isSubList(miLista));
     }
 
     @Test
     public void testIsSubListPeq3(){
-        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("B", "A");
-        assertEquals(this.lista.isSubList(miLista), -1);
+        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("C","D");
+        assertEquals(3, this.lista.isSubList(miLista));
     }
 
     @Test
     public void testIsSubListPeq4(){
-        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("C", "B");
-        assertEquals(this.lista.isSubList(miLista), -1);
+        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("B", "A");
+        assertEquals(-1, this.lista.isSubList(miLista));
     }
 
     @Test
     public void testIsSubListPeq5(){
-        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("B");
-        assertEquals(this.lista.isSubList(miLista), 2);
+        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("X","Y");
+        assertEquals(5, this.lista.isSubList(miLista));
     }
 
     @Test
     public void testIsSubListPeq6(){
-        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("");
-        assertEquals(this.lista.isSubList(miLista), -1);
+        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("Y");
+        assertEquals(6, this.lista.isSubList(miLista));
+    }
+    @Test
+    public void testIsSubListVacia(){
+        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>();
+        assertEquals(0, this.lista.isSubList(miLista));
     }
 
+    // Test unico para lista null
     @Test
-    public void testIsSubListPeq7(){
+    public void testIsSubListSinElementos(){
+        this.lista = new SingleLinkedListImpl<String>(); //Sin elementos
         SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>();
         assertEquals(this.lista.isSubList(miLista), 0);
     }
-
-    @Test
-    public void testVacio(){
-        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("X","Z");
-        assertEquals(miLista.isSubList(this.lista), -1);
-    }
-
 }
