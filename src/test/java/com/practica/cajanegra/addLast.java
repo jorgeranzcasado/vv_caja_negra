@@ -1,6 +1,7 @@
 package com.practica.cajanegra;
 
 import com.cajanegra.SingleLinkedListImpl;
+import com.cajanegra.AbstractSingleLinkedListImpl;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -10,7 +11,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 
 public class addLast {
-    private SingleLinkedListImpl<String> miLista;
+    private AbstractSingleLinkedListImpl<String> miLista;
 
     @BeforeEach
     public void setUp() {
