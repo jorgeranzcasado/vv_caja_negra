@@ -1,6 +1,7 @@
 package com.practica.cajanegra;
 
 import com.cajanegra.SingleLinkedListImpl;
+import com.cajanegra.AbstractSingleLinkedListImpl;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
