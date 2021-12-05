@@ -1,8 +1,7 @@
 package com.practica.cajanegra;
 
-import com.cajanegra.AbstractSingleLinkedListImpl;
 import com.cajanegra.SingleLinkedListImpl;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class getAtPos {
-    private AbstractSingleLinkedListImpl<String> miLista;
+    private SingleLinkedListImpl<String> miLista;
 
     @BeforeEach
     public void setUp() {
@@ -27,6 +26,7 @@ public class getAtPos {
     @ValueSource(ints = {1,2,3,4,5})
     public void getAtPostValidos(int n) {
         String[] salidaEsp = {"A", "B", "C", "D", "E"};
+        assertEquals(salidaEsp[n-1], this.miLista.getAtPos(n));
     }
 
     //Clase invalida:   pos > size()
