@@ -33,9 +33,15 @@ public class isSubList {
     }
 
     @Test
-    public void testIsSubListPeq4(){
+    public void testNoIsSubList(){
         SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("B", "A");
         assertEquals(-1, this.lista.isSubList(miLista));
+    }
+
+    @Test
+    public void testIsSubListPeq4(){
+        SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>("D", "X", "Y");
+        assertEquals(4, this.lista.isSubList(miLista));
     }
 
     @Test
