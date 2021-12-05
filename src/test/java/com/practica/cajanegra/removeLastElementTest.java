@@ -1,6 +1,7 @@
 package com.practica.cajanegra;
 
 import com.cajanegra.EmptyCollectionException;
+import com.cajanegra.AbstractSingleLinkedListImpl;
 import com.cajanegra.SingleLinkedListImpl;
 import java.util.NoSuchElementException;
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,7 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class removeLastElementTest {
-    private SingleLinkedListImpl<String> miLista;
+    private AbstractSingleLinkedListImpl<String> miLista;
 
     //Clase valida 1. A <= s <= Z – lista vacía (se lanza excepción)
     @ParameterizedTest(name = "Eliminar Elemento {0} de una lista vacia")
@@ -25,9 +26,7 @@ public class removeLastElementTest {
     @Test
     public void removeElementVal2() {
         this.miLista = new SingleLinkedListImpl<String>("A", "B", "C");
-        assertThrows(NoSuchElementException.class, () -> {
-            this.miLista.removeLast("D");
-        });
+        assertThrows(NoSuchElementException.class, () -> {this.miLista.removeLast("D");});
     }
 
     //Clase valida 3. A <= s <= Z – s está en la última posición de la lista
