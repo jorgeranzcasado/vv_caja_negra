@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class addFirstTest {
-    private SingleLinkedListImpl<String> miLista;
+    private AbstractSingleLinkedListImpl<String> miLista;
 
     @BeforeEach
     public void setUp() {
