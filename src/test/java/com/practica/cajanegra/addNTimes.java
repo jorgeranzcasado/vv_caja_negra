@@ -54,12 +54,12 @@ public class addNTimes {
             miLista.addNTimes(s,n);
             assertEquals(esperado.toString(), miLista.toString() );
         } else {
-            Exception exception = assertThrows(IllegalArgumentException.class, () ->
-                    this.miLista.addNTimes(s,n));
             if (ascii <= 64 || ascii >= 91){
-                assertEquals("No puedes introducir caracteres menor que A y mayor que Z", exception.getMessage());
+                miLista.addNTimes(s,n);
+                assertEquals(esperado.toString(), miLista.toString());
             } else {
-                assertEquals("No puedes introducir n�meros menores que cero", exception.getMessage());
+                Exception message = assertThrows(IllegalArgumentException.class, () -> this.miLista.addNTimes(s, n));
+                System.out.println(message.getMessage());
             }
         }
     }
