@@ -1,5 +1,6 @@
 package com.practica.cajanegra;
 
+import com.cajanegra.AbstractSingleLinkedListImpl;
 import com.cajanegra.SingleLinkedListImpl;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -9,7 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class getAtPos {
-    private SingleLinkedListImpl<String> miLista;
+    private AbstractSingleLinkedListImpl<String> miLista;
 
     @BeforeEach
     public void setUp() {
@@ -19,8 +20,7 @@ public class getAtPos {
     //Clase invalida:   pos <= 0
     @Test
     void getAtPostInvalido0() {
-        Exception message = assertThrows(IllegalArgumentException.class, () -> this.miLista.getAtPos(0));
-        System.out.println(message.getMessage());
+        assertThrows(IllegalArgumentException.class, () -> this.miLista.getAtPos(0));
     }
     // Clase valida:   0 < pos <= size()
     @ParameterizedTest(name= "Valid values - Get position {0} in list")
@@ -32,7 +32,6 @@ public class getAtPos {
     //Clase invalida:   pos > size()
     @Test
     void getAtPostInvalido6() {
-        Exception message = assertThrows(IllegalArgumentException.class, () -> this.miLista.getAtPos(6));
-        System.out.println(message.getMessage());
+        assertThrows(IllegalArgumentException.class, () -> this.miLista.getAtPos(6));
     }
 }
