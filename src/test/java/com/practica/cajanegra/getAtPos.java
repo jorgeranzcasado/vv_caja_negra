@@ -19,7 +19,8 @@ public class getAtPos {
     //Clase invalida:   pos <= 0
     @Test
     void getAtPostInvalido0() {
-        assertThrows(IllegalArgumentException.class, () -> this.miLista.getAtPos(0));
+        Exception message = assertThrows(IllegalArgumentException.class, () -> this.miLista.getAtPos(0));
+        System.out.println(message.getMessage());
     }
     // Clase valida:   0 < pos <= size()
     @ParameterizedTest(name= "Valid values - Get position {0} in list")
@@ -31,6 +32,7 @@ public class getAtPos {
     //Clase invalida:   pos > size()
     @Test
     void getAtPostInvalido6() {
-        assertThrows(IllegalArgumentException.class, () -> this.miLista.getAtPos(6));
+        Exception message = assertThrows(IllegalArgumentException.class, () -> this.miLista.getAtPos(6));
+        System.out.println(message.getMessage());
     }
 }
