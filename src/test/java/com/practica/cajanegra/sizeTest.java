@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import com.cajanegra.SingleLinkedListImpl;
 
-class size {
+class sizeTest {
 
-		//Probamos con lista vacía
+		//Probamos con lista vacÃ­a
 		@Test
 		public void testEmpty() {
 			  SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>();
