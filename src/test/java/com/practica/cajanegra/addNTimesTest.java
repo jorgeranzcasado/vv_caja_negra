@@ -10,7 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.Arguments;
 
-public class addNTimes {
+public class addNTimesTest {
 
     private SingleLinkedListImpl<String> miLista;
     private ArrayList<String> esperado = new ArrayList<String>();
