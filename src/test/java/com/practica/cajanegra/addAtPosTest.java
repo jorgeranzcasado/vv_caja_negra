@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class addAtPos {
+public class addAtPosTest {
     private SingleLinkedListImpl<String> miLista;
 
     @BeforeEach
@@ -18,7 +18,7 @@ public class addAtPos {
         this.miLista = new SingleLinkedListImpl<>("A","B","C","D","E");
     }
 
-    //Clases v·lidas para string s: A-Z
+    //Clases v√°lidas para string s: A-Z
     @ParameterizedTest(name= "Valid values - Add Element position {0} in list")
     @ValueSource(strings = {"@", "A", "B", "L", "Y", "Z", "["})
     public void addAtPosMinMenos(String s) {
