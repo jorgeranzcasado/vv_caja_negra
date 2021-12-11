@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import com.cajanegra.SingleLinkedListImpl;
 
-public class reverse {
+public class reverseTest {
 
     private AbstractSingleLinkedListImpl<String> lista;
 
