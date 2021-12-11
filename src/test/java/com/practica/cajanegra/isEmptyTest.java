@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 
 import com.cajanegra.SingleLinkedListImpl;
 
-class isEmpty {
+class isEmptyTest {
 	
-	//Probamos con lista vacía
+	//Probamos con lista vacÃ­a
 	@Test
 	public void testEmpty() {
 		  SingleLinkedListImpl<String> miLista = new SingleLinkedListImpl<String>();
