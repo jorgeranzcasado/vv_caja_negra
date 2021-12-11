@@ -10,7 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 
-public class addLast {
+public class addLastTest {
     private AbstractSingleLinkedListImpl<String> miLista;
 
     @BeforeEach
