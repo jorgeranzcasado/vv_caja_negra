@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import com.cajanegra.SingleLinkedListImpl;
 
-class isEmptyTest {
+public class isEmptyTest {
 	
 	//Probamos con lista vacía
 	@Test
