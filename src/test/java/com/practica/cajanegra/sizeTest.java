@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import com.cajanegra.SingleLinkedListImpl;
 
-class sizeTest {
+public class sizeTest {
 
 		//Probamos con lista vacía
 		@Test
